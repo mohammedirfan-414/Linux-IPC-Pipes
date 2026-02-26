@@ -25,6 +25,7 @@ Testing the C Program for the desired output.
 
 ## C Program that illustrate communication between two process using unnamed pipes using Linux API system calls
 
+#include<stdio.h>
 #include<stdlib.h>
 #include<sys/types.h> 
 #include<sys/stat.h> 
@@ -51,6 +52,7 @@ client(p1[1],p2[0]);
 wait(waits); 
 return 0; 
 } 
+
 void server(int rfd,int wfd) 
 { 
 int i,j,n; 
@@ -71,6 +73,7 @@ int i,j,n; char fname[2000];
 char buff[2000];
 printf("ENTER THE FILE NAME :");
 scanf("%s",fname);
+printf("CLIENT SENDING THE REQUEST .... PLEASE WAIT\n");
 sleep(10);
 write(wfd,fname,2000);
 n=read(rfd,buff,2000);
